@@ -1,9 +1,11 @@
-import './App.css';
+import Topnav from './pages/global/Topnav';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">Hello</header>
+    <div className="app">
+      <main className="content">
+        <Topnav />
+      </main>
     </div>
   );
 }

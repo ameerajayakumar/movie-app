@@ -1,0 +1,41 @@
+import { Box, IconButton } from '@mui/material';
+import InputBase from '@mui/material/InputBase';
+import SearchIcon from '@mui/icons-material/Search';
+import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import CloseIcon from '@mui/icons-material/Close';
+
+const Topnav = () => {
+  return (
+    <Box display="flex" justifyContent="space-between" p={2}>
+      {/* SearchBar */}
+      <Box display="flex" backgroundColor={'#1A2536'} borderRadius="8px" height="55px" width="567px">
+        <IconButton type="button" sx={{ p: 1, color: '#D4D7DD' }}>
+          <SearchIcon sx={{ fontSize: 23 }} />
+        </IconButton>
+        <InputBase
+          sx={{
+            flex: 1,
+            color: '#fff',
+            fontSize: '19px',
+            fontWeight: '400',
+          }}
+          placeholder="Title, Movies, Keyword"
+        />
+        <IconButton type="button" sx={{ p: 1, color: '#D4D7DD' }}>
+          <CloseIcon sx={{ fontSize: 15 }} />
+        </IconButton>
+      </Box>
+      {/* Icons */}
+      <Box display="flex">
+        <IconButton type="button" sx={{ p: 1, color: '#D4D7DD' }}>
+          <LightModeOutlinedIcon />
+        </IconButton>
+        <IconButton type="button" sx={{ p: 1, color: '#D4D7DD' }}>
+          <MoreVertIcon />
+        </IconButton>
+      </Box>
+    </Box>
+  );
+};
+export default Topnav;
