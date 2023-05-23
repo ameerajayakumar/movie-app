@@ -17,8 +17,13 @@ const Topnav = () => {
           sx={{
             flex: 1,
             color: '#fff',
-            fontSize: '19px',
+            fontSize: '21px',
             fontWeight: '400',
+            lineHeight: '44px',
+            '& ::placeholder': {
+              color: '#7B828E',
+              fontSize: '19px',
+            },
           }}
           placeholder="Title, Movies, Keyword"
         />
