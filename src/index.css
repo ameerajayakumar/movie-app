@@ -16,3 +16,15 @@ body,
   display: flex;
   position: relative;
 }
+
+.pro-menu-item.active {
+  color: #00e0ff !important;
+}
+.pro-inner-item:hover {
+  color: inherit !important;
+  background-color: inherit !important;
+  cursor: default !important;
+}
+.active > .pro-inner-item {
+  border-right: 3px solid #00e0ff;
+}
