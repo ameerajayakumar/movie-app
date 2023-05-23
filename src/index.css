@@ -10,6 +10,7 @@ body,
   font-family: 'Open Sans', sans-serif;
   background-color: #273244;
   margin: 0;
+  overflow-x: hidden;
 }
 
 .app {
@@ -34,4 +35,14 @@ body,
   font-size: 25px;
   font-weight: 200;
   line-height: 20.43px;
+  border-radius: 11px;
+  height: 278px;
+  width: 178px;
+}
+.MuiCardContent-root.card-content {
+  padding: 10px;
+}
+
+.MuiCardMedia-img.card-image {
+  object-fit: unset;
 }

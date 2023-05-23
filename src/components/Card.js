@@ -5,18 +5,16 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
-import { CardActionArea, CardActions, IconButton } from '@mui/material';
+import { CardActions, IconButton } from '@mui/material';
 import { Box } from '@mui/system';
 
 export default function MovieCard({ movie }) {
   return (
     <Card sx={{ maxWidth: 178, maxHeight: 278 }} className="card">
-      <CardActionArea>
-        <CardMedia component="img" height="140" image={movie.Poster} alt="green iguana" />
-        <CardContent>
-          <Typography variant="h5">{movie.Title}</Typography>
-        </CardContent>
-      </CardActionArea>
+      <CardContent className="card-content">
+        <CardMedia component="img" height="188" width="157" image={movie.Poster} alt={movie.Title} className="card-image" />
+        <Typography variant="h5">{movie.Title}</Typography>
+      </CardContent>
       <CardActions>
         <Box display="flex">
           <IconButton type="button" sx={{ p: 1, color: '#D4D7DD' }}>
