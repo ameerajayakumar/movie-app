@@ -28,3 +28,10 @@ body,
 .active > .pro-inner-item {
   border-right: 3px solid #00e0ff;
 }
+.MuiCard-root.card {
+  background-color: #394b61;
+  color: #d4d7dd;
+  font-size: 25px;
+  font-weight: 200;
+  line-height: 20.43px;
+}

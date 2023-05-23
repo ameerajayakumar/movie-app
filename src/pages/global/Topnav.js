@@ -7,7 +7,7 @@ import CloseIcon from '@mui/icons-material/Close';
 
 const Topnav = () => {
   return (
-    <Box display="flex" justifyContent="space-between" p={2}>
+    <Box display="flex" justifyContent="space-between" mt="42px" mx="48px">
       {/* SearchBar */}
       <Box display="flex" backgroundColor={'#1A2536'} borderRadius="8px" height="55px" width="567px">
         <IconButton type="button" sx={{ p: 1, color: '#D4D7DD' }}>
