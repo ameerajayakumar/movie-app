@@ -7,9 +7,13 @@ import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import { IconButton } from '@mui/material';
 import { Box } from '@mui/system';
 
-export default function MovieCard({ movie }) {
+export default function MovieCard({ movie, open, setOpen, setMovieDetails }) {
+  const handleExpandCard = () => {
+    setMovieDetails(movie);
+    setOpen(!open);
+  };
   return (
-    <Card className="card">
+    <Card className="card" onClick={handleExpandCard}>
       <div className="card-content">
         <CardMedia component="img" image={movie.Poster} alt={movie.Title} className="card-image" />
       </div>
