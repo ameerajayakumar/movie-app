@@ -29,6 +29,7 @@ const Item = ({ title, icon }) => {
 const Sidenav = () => {
   return (
     <Box
+      maxWidth="20%"
       sx={{
         '& .pro-sidebar-inner': {
           background: `#1F2A3C !important`,
@@ -41,7 +42,7 @@ const Sidenav = () => {
         },
       }}
     >
-      <ProSidebar width="17rem">
+      <ProSidebar className="sidenav">
         <Menu iconShape="square">
           {/* LOGO AND MENU ICON */}
           <Box mt="19px" mb="20px">

@@ -38,11 +38,61 @@ body,
   border-radius: 11px;
   height: 278px;
   width: 178px;
-}
-.MuiCardContent-root.card-content {
   padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  cursor: pointer;
 }
-
+.card-content {
+  height: 188px;
+  width: 157px;
+}
 .MuiCardMedia-img.card-image {
   object-fit: unset;
+  height: 100%;
+  width: 100%;
+  border-radius: 6px;
+}
+.card-actions {
+  padding: 0px;
+}
+.MuiCard-root.expandCard {
+  background-color: #394b61;
+  width: 62rem;
+  height: 24rem;
+  display: flex;
+  margin-left: 44px;
+  margin-top: 44px;
+  border-radius: 11px;
+}
+.MuiCardMedia-img.movieImage {
+  max-width: 21rem;
+  height: 24rem;
+  object-fit: contain;
+  width: auto;
+}
+.movieDetails {
+  color: #d4d7dd;
+}
+.movieDetails > .movieTitle {
+  font-size: 30px;
+  font-weight: 700;
+}
+.movieMeta {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  margin-bottom: 2px;
+}
+.moviePlot {
+  font-size: 14px;
+  font-weight: 400;
+}
+.MuiTypography-root.movieBtn {
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: none;
 }

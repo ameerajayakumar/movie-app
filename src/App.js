@@ -4,6 +4,7 @@ import Topnav from './pages/global/Topnav';
 import Sidenav from './pages/global/Sidenav';
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from './theme';
+import ExpandCard from './components/ExpandCard';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Sidenav />
         <main className="content">
           <Topnav />
+          <ExpandCard />
           <Routes>
             <Route path="/" element={<Discover />} />
           </Routes>

@@ -1,12 +1,12 @@
-import { Box, Grid } from '@mui/material';
+import { Grid } from '@mui/material';
 import MovieCard from '../../components/Card';
 import { data } from '../../backend/data/mockData';
 
 const Discover = () => {
   return (
-    <Grid container my="56px" mx="48px" rowSpacing="37px">
+    <Grid container mt="4px" rowSpacing="37px" justifyContent="space-between" ml="15px">
       {data.map((movie) => (
-        <Grid item md={3} style={{ maxWidth: '20%' }} className="gridItem" key={movie.imdbID}>
+        <Grid item xs={12} sm={6} md={4} lg={2.25} className="gridItem" key={movie.imdbID}>
           <MovieCard movie={movie} />
         </Grid>
       ))}
