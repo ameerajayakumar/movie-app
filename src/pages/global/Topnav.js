@@ -8,6 +8,7 @@ import { useEffect, useRef, useState } from 'react';
 
 const Topnav = (props) => {
   const [active, setActive] = useState(false);
+  const [keyword, setKeyword] = useState(null);
   const [debounceTimer, updateTimer] = useState(0);
   const inputRef = useRef(null);
 
@@ -27,6 +28,10 @@ const Topnav = (props) => {
   const handleSearchOpen = () => {
     setActive(true);
   };
+  const handleClearSearch = () => {
+    setKeyword('');
+    props.setMovies(props.movieList);
+  };
 
   const debounceSearch = (event, debounceTimeout) => {
     const text = event.target.value;
@@ -35,6 +40,7 @@ const Topnav = (props) => {
       props.performSearch(text);
     }, 500);
     updateTimer(timer);
+    setKeyword(text);
   };
 
   return (
@@ -64,14 +70,15 @@ const Topnav = (props) => {
                 fontSize: '19px',
                 visibility: 'hidden',
                 opacity: 0,
-                transition: 'visibility 0.3s linear 0.3s, opacity 0.3s linear',
+                transition: 'opacity 0.3s linear',
               },
             }}
             className="input-box"
             placeholder="Title, Movies, Keyword"
             onChange={(e) => debounceSearch(e, debounceTimer)}
+            value={keyword}
           />
-          <IconButton type="button" sx={{ p: 1, color: '#D4D7DD' }} className="clear-btn">
+          <IconButton type="button" sx={{ p: 1, color: '#D4D7DD' }} className="clear-btn" onClick={handleClearSearch}>
             <CloseIcon sx={{ fontSize: 15 }} />
           </IconButton>
         </Box>

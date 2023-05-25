@@ -29,7 +29,6 @@ const Item = ({ title, icon }) => {
 const Sidenav = () => {
   return (
     <Box
-      maxWidth="20%"
       sx={{
         '& .pro-sidebar-inner': {
           background: `#1F2A3C !important`,

@@ -1,4 +1,4 @@
-import { Box, Grid, Typography } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import MovieCard from '../../components/Card';
 import ExpandCard from '../../components/ExpandCard';
 import { useState } from 'react';

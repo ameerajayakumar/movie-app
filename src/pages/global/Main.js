@@ -5,25 +5,25 @@ import { Routes, Route } from 'react-router-dom';
 import { data } from '../../backend/data/mockData';
 
 const Main = () => {
-  const [searchMovies, handleSearch] = useState(data);
-  const [movieList, updateMovieList] = useState(data);
+  const [movies, setMovies] = useState(data);
 
   const performSearch = async (text) => {
     const keyword = text.toLowerCase();
     const searchProperties = ['Title', 'Genre', 'Director', 'Writer', 'Actors', 'Plot'];
-    const filteredMovies = movieList.filter((movie) => {
+    const filteredMovies = data.filter((movie) => {
       return searchProperties.some((property) => {
         const propertyValue = movie[property];
         return propertyValue.toLowerCase().includes(keyword);
       });
     });
-    handleSearch(filteredMovies);
+    setMovies(filteredMovies);
   };
+
   return (
     <main className="content">
-      <Topnav performSearch={performSearch} movieList={movieList} />
+      <Topnav performSearch={performSearch} movieList={data} setMovies={setMovies} />
       <Routes>
-        <Route path="/" element={<Discover movieList={searchMovies} />} />
+        <Route path="/" element={<Discover movieList={movies} />} />
       </Routes>
     </main>
   );
