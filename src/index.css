@@ -101,3 +101,23 @@ body,
   font-weight: 700;
   text-transform: none;
 }
+.search-input {
+  transition: width 0.4s ease-in-out;
+  width: 0px;
+}
+.search-input.active {
+  width: 567px;
+}
+.MuiIconButton-root.clear-btn {
+  display: none;
+  transition: display 0.4s ease;
+}
+.search-input.active .MuiIconButton-root.clear-btn {
+  display: inline-flex;
+}
+
+.search-input.active ::placeholder {
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0.4s;
+}
