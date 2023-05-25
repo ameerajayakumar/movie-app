@@ -61,7 +61,8 @@ body,
 }
 .MuiCard-root.expandCard {
   background-color: #394b61;
-  width: 62rem;
+  min-width: 45rem;
+  max-width: 94%;
   height: 24rem;
   display: flex;
   margin-left: 44px;
@@ -76,6 +77,10 @@ body,
 }
 .movieDetails {
   color: #d4d7dd;
+  overflow-y: hidden;
+}
+.movieDetails:hover {
+  overflow-y: auto;
 }
 .movieDetails > .movieTitle {
   font-size: 30px;
