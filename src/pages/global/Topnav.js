@@ -6,8 +6,9 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import CloseIcon from '@mui/icons-material/Close';
 import { useEffect, useRef, useState } from 'react';
 
-const Topnav = () => {
+const Topnav = (props) => {
   const [active, setActive] = useState(false);
+  const [debounceTimer, updateTimer] = useState(0);
   const inputRef = useRef(null);
 
   const handleClickOutside = (event) => {
@@ -15,6 +16,7 @@ const Topnav = () => {
       setActive(false);
     }
   };
+
   useEffect(() => {
     document.addEventListener('click', handleClickOutside);
     return () => {
@@ -25,8 +27,18 @@ const Topnav = () => {
   const handleSearchOpen = () => {
     setActive(true);
   };
+
+  const debounceSearch = (event, debounceTimeout) => {
+    const text = event.target.value;
+    if (debounceTimeout) clearTimeout(debounceTimeout);
+    const timer = setTimeout(() => {
+      props.performSearch(text);
+    }, 500);
+    updateTimer(timer);
+  };
+
   return (
-    <Box display="flex" justifyContent="space-between" mt="42px" mx="48px">
+    <Box display="flex" justifyContent="space-between" mt="42px" mx="3rem">
       {/* SearchBar */}
       <form className="search">
         <Box
@@ -52,11 +64,12 @@ const Topnav = () => {
                 fontSize: '19px',
                 visibility: 'hidden',
                 opacity: 0,
-                transition: 'visibility 0s linear 0.3s, opacity 0.3s linear',
+                transition: 'visibility 0.3s linear 0.3s, opacity 0.3s linear',
               },
             }}
             className="input-box"
             placeholder="Title, Movies, Keyword"
+            onChange={(e) => debounceSearch(e, debounceTimer)}
           />
           <IconButton type="button" sx={{ p: 1, color: '#D4D7DD' }} className="clear-btn">
             <CloseIcon sx={{ fontSize: 15 }} />

@@ -119,5 +119,6 @@ body,
 .search-input.active ::placeholder {
   visibility: visible;
   opacity: 1;
-  transition-delay: 0.4s;
+  transition-delay: 0.5s;
+  color: #7b828e;
 }
