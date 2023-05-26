@@ -19,9 +19,9 @@ export default function ExpandCard({ movie, open }) {
     >
       <Box display="flex" className="movieContent">
         <CardMedia component="img" image={movie.Poster} alt={movie.Title} className="movieImage" />
-        <Box display="flex" flexDirection="column" my="2rem" mx="3rem" className="movieDetails">
+        <Box display="flex" flexDirection="column" mt="2rem" mb={isMobile ? '0' : '2rem'} mx="3rem" className="movieDetails">
           <Typography className="movieTitle">{movie.Title}</Typography>
-          <Box display="flex" mt="9px" justifyContent="space-between" width="25%" alignItems="baseline">
+          <Box display="flex" mt="9px" justifyContent="space-between" width={isMobile ? '70%' : '25%'} alignItems="baseline">
             {movie.imdbRating === 'N/A' ? (
               <>
                 <Box className="ratingbar" width="60%" height="8px">
@@ -38,7 +38,7 @@ export default function ExpandCard({ movie, open }) {
               </>
             )}
           </Box>
-          <Box display="flex" my="15px" justifyContent="space-between" width="40%" maxWidth="100%">
+          <Box display="flex" my="15px" justifyContent="space-between" width={isMobile ? '100%' : '40%'} maxWidth="100%">
             <Box display="flex" flexDirection="column">
               <Typography className="movieMeta">Year:</Typography>
               <Typography className="movieMeta">Running Time:</Typography>

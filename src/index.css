@@ -200,6 +200,9 @@ body,
     display: flex;
     flex-direction: column;
   }
+  .MuiTypography-root.movieBtn {
+    font-size: 14px;
+  }
   @keyframes expandCardAnimation {
     0% {
       width: 0px;
