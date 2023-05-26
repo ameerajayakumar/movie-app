@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 const deviceType = (size, device) => {
   switch (true) {
-    case size > 320 && size <= 900 && device === 'mobile':
+    case size <= 900 && device === 'mobile':
       return true;
     case size > 480 && size <= 768 && device === 'tablet':
       return true;

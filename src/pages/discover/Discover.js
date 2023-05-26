@@ -2,8 +2,10 @@ import { Grid, Typography } from '@mui/material';
 import MovieCard from '../../components/MovieCard';
 import ExpandCard from '../../components/ExpandCard';
 import { useState } from 'react';
+import useMediaQueries from '../../hooks/useMediaQueries';
 
 const Discover = (props) => {
+  const isMobile = useMediaQueries('mobile');
   const [open, setOpen] = useState(false);
   const [movieDetails, setMovieDetails] = useState([]);
   // const [row, setRow] = useState([]);
@@ -40,17 +42,17 @@ const Discover = (props) => {
       <Grid container>
         <ExpandCard movie={movieDetails} open={open} />
         {props.movieList.length > 0 ? (
-          <Grid container my="2.4rem" mx="15px" spacing={2}>
+          <Grid container my="2.4rem" spacing={2}>
             {props.movieList.map((movie, index) => {
               return (
-                <Grid item xs={12} sm={6} md={4} lg={3} xl={2.25} key={movie.imdbID}>
+                <Grid item xs={12} sm={6} md={4} lg={3} xl={2.25} key={movie.imdbID} display="flex" justifyContent="center">
                   <MovieCard movie={movie} open={open} setOpen={setOpen} setMovieDetails={setMovieDetails} prevMovie={movieDetails} />
                 </Grid>
               );
             })}
           </Grid>
         ) : (
-          <Typography component="div" fontSize="21px" fontWeight="600" mt="2.5rem" ml="3rem" color="#fff">
+          <Typography component="div" fontSize={isMobile ? '15px' : '21px'} fontWeight="600" mt="2.5rem" ml="3rem" color="#fff">
             No results found for your search.
           </Typography>
         )}

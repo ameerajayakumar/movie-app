@@ -3,8 +3,10 @@ import { Box } from '@mui/system';
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
 import { useEffect, useRef, useState } from 'react';
+import useMediaQueries from '../../hooks/useMediaQueries';
 
 const Search = (props) => {
+  const isMobile = useMediaQueries('mobile');
   const [active, setActive] = useState(false);
   const [keyword, setKeyword] = useState('');
   const [debounceTimer, updateTimer] = useState(0);
@@ -46,7 +48,7 @@ const Search = (props) => {
       display="flex"
       backgroundColor={'#1A2536'}
       borderRadius="8px"
-      height="55px"
+      height={isMobile ? '30px' : '55px'}
       className={active ? 'search-input active' : 'search-input'}
       ref={inputRef}
     >
@@ -57,12 +59,12 @@ const Search = (props) => {
         sx={{
           flex: 1,
           color: '#fff',
-          fontSize: '21px',
+          fontSize: isMobile ? '15px' : '21px',
           fontWeight: '400',
           lineHeight: '44px',
           '& ::placeholder': {
             color: '#7b828e',
-            fontSize: '19px',
+            fontSize: isMobile ? '15px' : '19px',
             visibility: 'hidden',
             opacity: 0,
             transition: 'opacity 0.3s linear',
