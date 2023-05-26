@@ -8,6 +8,7 @@ const Discover = (props) => {
   const isMobile = useMediaQueries('mobile');
   const [open, setOpen] = useState(false);
   const [movieDetails, setMovieDetails] = useState([]);
+  const [clicked, setClicked] = useState(null);
   // const [row, setRow] = useState([]);
 
   // // on resize of window,get the rownumber
@@ -46,7 +47,16 @@ const Discover = (props) => {
             {props.movieList.map((movie, index) => {
               return (
                 <Grid item xs={12} sm={6} md={4} lg={3} xl={2.25} key={movie.imdbID} display="flex" justifyContent="center">
-                  <MovieCard movie={movie} open={open} setOpen={setOpen} setMovieDetails={setMovieDetails} prevMovie={movieDetails} />
+                  <MovieCard
+                    movie={movie}
+                    open={open}
+                    setOpen={setOpen}
+                    setMovieDetails={setMovieDetails}
+                    prevMovie={movieDetails}
+                    index={index}
+                    clicked={clicked}
+                    setClicked={setClicked}
+                  />
                 </Grid>
               );
             })}

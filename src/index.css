@@ -45,6 +45,8 @@ body,
   justify-content: space-between;
   align-items: flex-start;
   cursor: pointer;
+  box-shadow: none;
+  transition: box-shadow 0.3s linear;
 }
 .card-content {
   height: 188px;
@@ -58,6 +60,9 @@ body,
 }
 .card-actions {
   padding: 0px;
+}
+.MuiCard-root.card.clicked {
+  box-shadow: 0 0 0 4px #00e0ff;
 }
 .MuiCard-root.expandCard {
   display: none;

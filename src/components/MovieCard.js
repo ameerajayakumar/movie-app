@@ -6,9 +6,15 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import { IconButton } from '@mui/material';
 import { Box } from '@mui/system';
+import { useState } from 'react';
 
-export default function MovieCard({ movie, setOpen, open, setMovieDetails, prevMovie }) {
-  const handleExpandCard = () => {
+export default function MovieCard({ movie, setOpen, open, setMovieDetails, prevMovie, index, clicked, setClicked }) {
+  const handleExpandCard = (index) => {
+    if (clicked === index) {
+      setClicked(null);
+    } else {
+      setClicked(index);
+    }
     if (prevMovie.imdbID === movie.imdbID && open === true) {
       setOpen(false);
     } else {
@@ -19,12 +25,15 @@ export default function MovieCard({ movie, setOpen, open, setMovieDetails, prevM
       }, 80);
     }
   };
+
   return (
-    <Card className="card" onClick={handleExpandCard}>
+    <Card className={`card ${clicked === index ? 'clicked' : ''}`} onClick={() => handleExpandCard(index)} index={index}>
       <div className="card-content">
         <CardMedia component="img" image={movie.Poster} alt={movie.Title} className="card-image" />
       </div>
-      <Typography variant="h5">{movie.Title}</Typography>
+      <Typography variant="h5" mt="5px">
+        {movie.Title}
+      </Typography>
       <Box display="flex" justifyContent="flex-start" className="card-actions">
         <IconButton type="button" sx={{ p: 0, color: '#D4D7DD' }}>
           <PlayCircleOutlineIcon sx={{ fontSize: 20 }} />
