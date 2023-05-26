@@ -15,11 +15,13 @@ Netlify deployment URL: [https://facebook.github.io/create-react-app/docs/deploy
 
 ### Tech Stack/Libaries Used:
 
-HTML
-CSS
-Javascript
-React
-Material UI
-React Pro Sidebar
+- HTML
+- CSS
+- Javascript
+- React
+- Material UI
+- React Pro Sidebar
 
 ### Features Implemented:
+
+- Sidenav
