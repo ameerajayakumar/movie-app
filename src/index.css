@@ -189,3 +189,28 @@ body,
     opacity: 1;
   }
 }
+@media (max-width: 900px) {
+  .MuiCard-root.expandCard.active {
+    min-width: 40vh;
+    margin-left: 0px;
+    height: 100vh;
+    box-shadow: none;
+  }
+  .movieContent {
+    display: flex;
+    flex-direction: column;
+  }
+  @keyframes expandCardAnimation {
+    0% {
+      width: 0px;
+      height: 0px;
+      opacity: 0;
+      background-color: #273244;
+    }
+    100% {
+      width: 86%;
+      opacity: 1;
+      background-color: #273244;
+    }
+  }
+}

@@ -39,7 +39,7 @@ const Discover = (props) => {
 
   return (
     <>
-      <Grid container>
+      <Grid container justifyContent={isMobile ? 'center' : ''}>
         <ExpandCard movie={movieDetails} open={open} />
         {props.movieList.length > 0 ? (
           <Grid container my="2.4rem" spacing={2}>
