@@ -1,5 +1,5 @@
 import { ProSidebar, Menu, MenuItem } from 'react-pro-sidebar';
-import { Box, Divider, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import 'react-pro-sidebar/dist/css/styles.css';
 import SearchIcon from '@mui/icons-material/Search';
 import PlaylistPlayIcon from '@mui/icons-material/PlaylistPlay';
@@ -10,7 +10,11 @@ import UpdateIcon from '@mui/icons-material/Update';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
+import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { CustomDivider } from '../../components/Divider';
+import useMediaQueries from '../../hooks/useMediaQueries';
+import { useEffect, useState } from 'react';
 
 const Item = ({ title, icon }) => {
   return (
@@ -27,6 +31,13 @@ const Item = ({ title, icon }) => {
 };
 
 const Sidenav = () => {
+  const [collapsed, setCollapsed] = useState(false);
+  const isMobile = useMediaQueries('mobile');
+  useEffect(() => {
+    if (isMobile) setCollapsed(true);
+    else setCollapsed(false);
+  }, [isMobile]);
+
   return (
     <Box
       sx={{
@@ -41,21 +52,21 @@ const Sidenav = () => {
         },
       }}
     >
-      <ProSidebar className="sidenav">
+      <ProSidebar className="sidenav" collapsed={collapsed}>
         <Menu iconShape="square">
           {/* LOGO AND MENU ICON */}
           <Box mt="19px" mb="20px">
             <Box display="flex" justifyContent="center" alignItems="center">
               <img
                 alt="profile-user"
-                width="100px"
-                height="100px"
+                width={isMobile ? '50px' : '100px'}
+                height={isMobile ? '50px' : '100px'}
                 src={`../../assets/profile-pic.png`}
                 style={{ cursor: 'default', borderRadius: '50%' }}
               />
             </Box>
             <Box textAlign="center" mt="15px">
-              <Typography fontSize="20px" color="#D4D7DD">
+              <Typography fontSize={isMobile ? '10px' : '20px'} color="#D4D7DD">
                 Eric Hoffman
               </Typography>
             </Box>
@@ -86,6 +97,13 @@ const Sidenav = () => {
             <Item title="Settings" icon={<SettingsOutlinedIcon />} />
             <Item title="Logout" icon={<LogoutOutlinedIcon />} />
           </Box>
+          <CustomDivider />
+          {isMobile && (
+            <Box paddingLeft="10%" mt="10px">
+              <Item title="Theme" icon={<LightModeOutlinedIcon />} />
+              <Item title="Theme" icon={<MoreVertIcon />} />
+            </Box>
+          )}
         </Menu>
       </ProSidebar>
     </Box>

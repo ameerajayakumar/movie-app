@@ -9,12 +9,8 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <div className="app">
-        {!isMobile && (
-          <>
-            <Sidenav />
-            <Main />
-          </>
-        )}
+        <Sidenav />
+        {!isMobile && <Main />}
       </div>
     </ThemeProvider>
   );
