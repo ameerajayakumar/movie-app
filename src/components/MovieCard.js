@@ -6,15 +6,17 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import { IconButton } from '@mui/material';
 import { Box } from '@mui/system';
-import { useEffect } from 'react';
 
-export default function MovieCard({ movie, setOpen, setMovieDetails, prevMovie }) {
+export default function MovieCard({ movie, setOpen, open, setMovieDetails, prevMovie }) {
   const handleExpandCard = () => {
-    if (prevMovie.imdbID === movie.imdbID) {
+    if (prevMovie.imdbID === movie.imdbID && open === true) {
       setOpen(false);
     } else {
       setMovieDetails(movie);
-      setOpen(true);
+      setOpen(false);
+      setTimeout(() => {
+        setOpen(true);
+      }, 80);
     }
   };
   return (
