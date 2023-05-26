@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Discover from '../discover';
+import Discover from '../discover/Discover';
 import Topnav from './Topnav';
 import { Routes, Route } from 'react-router-dom';
 import { data } from '../../backend/data/mockData';
