@@ -36,3 +36,7 @@ Netlify deployment URL: [Movie App Store](https://movie-app-store.netlify.app/)
 - Opening of expanded card between rows, above selected movie card is implemented
 - Added page responsiveness for different screen widths
 - Added mobile responsiveness for side nav, searchbar, theme changer, menu options, grid and expandable card components
+
+For Fun:
+![](https://komarev.com/ghpvc/?username=ameerajayakumar&color=blue&style=for-the-badge)
+
