@@ -24,12 +24,12 @@ Netlify deployment URL: [Movie App Store](https://movie-app-store.netlify.app/)
 
 ### Features Implemented:
 
-- Side navigation with user information and other links to website pages
-- Top navigation with search bar, theme changer and menu options
-- Search with keywords like Title of movie, Genre, Director, Writer, Actors, Plot
+- Side navigation UI with user information, discover(active page) and other navigation links(non-active)
+- Top navigation UI with search bar, theme changer and menu options
+- Search movies using keywords like Title of movie, Genre, Director, Writer, Actors, Plot
 - Clear search functionality added
 - Search bar animation added when clicking on search icon and clicking outside search bar
-- Movies displayed in grid
+- Movies displayed in grid layout
 - Clicking on movie card opens expanded card with more movie details and highlights selected movie on grid
 - Implemented animation for opening of expanded card
 - Animation for rating bar on expanded card also present
