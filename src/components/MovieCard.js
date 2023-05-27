@@ -6,7 +6,6 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import { IconButton } from '@mui/material';
 import { Box } from '@mui/system';
-import { useState } from 'react';
 
 export default function MovieCard({ movie, setOpen, open, setMovieDetails, prevMovie, index, clicked, setClicked }) {
   const handleExpandCard = (index) => {

@@ -77,20 +77,15 @@ body,
   margin-left: 44px;
   margin-top: 44px;
   border-radius: 11px;
-  animation: expandCardAnimation 0.7s forwards;
+  animation: expandCardAnimation 0.5s ease-in-out;
+  animation-fill-mode: both;
 }
 @keyframes expandCardAnimation {
   0% {
-    width: 0px;
-    height: 0px;
-    opacity: 0;
-    background-color: #273244;
+    transform: scaleY(0);
   }
   100% {
-    width: 86%;
-    height: 24rem;
-    opacity: 1;
-    background-color: #394b61;
+    transform: scaleY(1);
   }
 }
 
@@ -99,7 +94,9 @@ body,
   height: 24rem;
   object-fit: contain;
   width: auto;
-  animation: expandImageAnimation 0.7s forwards;
+  animation: expandImageAnimation 0.5s ease-in-out;
+  animation-fill-mode: both;
+  animation-delay: 0.5s;
 }
 @keyframes expandImageAnimation {
   0% {

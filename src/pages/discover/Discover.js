@@ -9,34 +9,6 @@ const Discover = (props) => {
   const [open, setOpen] = useState(false);
   const [movieDetails, setMovieDetails] = useState([]);
   const [clicked, setClicked] = useState(null);
-  // const [row, setRow] = useState([]);
-
-  // // on resize of window,get the rownumber
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     const windowWidth = window.innerWidth;
-  //     const newIndexArray = props.movieList.map((_, index) => {
-  //       let newRowIndex;
-  //       if (windowWidth >= 1920) {
-  //         newRowIndex = Math.floor(index / 5) + 1;
-  //       } else if (windowWidth >= 1280) {
-  //         newRowIndex = Math.floor(index / 4) + 1;
-  //       } else if (windowWidth >= 960) {
-  //         newRowIndex = Math.floor(index / 3) + 1;
-  //       } else if (windowWidth >= 600) {
-  //         newRowIndex = Math.floor(index / 2) + 1;
-  //       } else {
-  //         newRowIndex = 1;
-  //       }
-  //       return newRowIndex;
-  //     });
-  //     setRow(newIndexArray);
-  //   };
-  //   window.addEventListener('resize', handleResize);
-  //   return () => {
-  //     window.removeEventListener('resize', handleResize);
-  //   };
-  // }, [props.movieList]);
 
   return (
     <>
