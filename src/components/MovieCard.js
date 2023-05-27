@@ -9,11 +9,12 @@ import { Box } from '@mui/system';
 
 export default function MovieCard({ movie, setOpen, open, setMovieDetails, prevMovie, index, clicked, setClicked }) {
   const handleExpandCard = (index) => {
-    if (clicked === index) {
-      setClicked(null);
-    } else {
-      setClicked(index);
-    }
+    // if (clicked === index) {
+    //   setClicked(null);
+    // } else {
+    //   setClicked(index);
+    // }
+    setClicked();
     if (prevMovie.imdbID === movie.imdbID && open === true) {
       setOpen(false);
     } else {
@@ -26,7 +27,7 @@ export default function MovieCard({ movie, setOpen, open, setMovieDetails, prevM
   };
 
   return (
-    <Card className={`card ${clicked === index ? 'clicked' : ''}`} onClick={() => handleExpandCard(index)} index={index}>
+    <Card className={`${clicked ? 'card clicked' : 'card'}`} onClick={() => handleExpandCard(index)} index={index}>
       <div className="card-content">
         <CardMedia component="img" image={movie.Poster} alt={movie.Title} className="card-image" />
       </div>
