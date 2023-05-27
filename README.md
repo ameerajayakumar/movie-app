@@ -11,7 +11,7 @@ Open [http://localhost:8081](http://localhost:8081) to view it in your browser.
 
 ### Deployment:
 
-Netlify deployment URL: []()
+Netlify deployment URL: [Movie App Store](https://movie-app-store.netlify.app/)
 
 ### Tech Stack/Libaries Used:
 
