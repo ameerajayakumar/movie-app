@@ -1,7 +1,7 @@
 import { Typography } from '@mui/material';
 import MovieCard from '../../components/MovieCard';
 import ExpandCard from '../../components/ExpandCard';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import useMediaQueries from '../../hooks/useMediaQueries';
 import Grid from '@mui/material/Unstable_Grid2';
 
@@ -9,17 +9,26 @@ const Discover = ({ movieList }) => {
   const isMobile = useMediaQueries('mobile');
   const [open, setOpen] = useState(false);
   const [movieDetails, setMovieDetails] = useState([]);
-  // const [clicked, setClicked] = useState(null);
   const column = 5;
   const rows = Math.ceil(movieList.length / column);
+  const gridRows = Array.from({ length: rows });
   const [selectedMovie, setSelectedMovie] = useState();
 
-  const onMovieSelect = (row, index) => {
-    const clickedMovie = movieList[row === 0 ? index : row * column + index];
+  const selectMovie = (rowIndex, movieIndex) => {
+    const currentMovie = movieList[rowIndex === 0 ? movieIndex : rowIndex * column + movieIndex];
+    // if (selectedMovie) {
+    //   if (selectedMovie.movie.imdbID === currentMovie.imdbID && open === true) setOpen(false);
+    //   else {
+    //     setOpen(false);
+    //     setTimeout(() => {
+    //       setOpen(true);
+    //     }, 80);
+    //   }
+    // }
     setSelectedMovie({
-      row,
-      index,
-      clickedMovie,
+      row: rowIndex,
+      index: movieIndex,
+      movie: currentMovie,
     });
   };
 
@@ -31,21 +40,21 @@ const Discover = ({ movieList }) => {
         </Typography>
       )}
       <Grid container justifyContent={isMobile ? 'center' : ''}>
-        {Array.from({ length: rows }).map((_, i) => {
-          const movies = movieList.slice(i * column, (i + 1) * column);
-          const show = selectedMovie && selectedMovie['row'] !== undefined && selectedMovie['row'] === i;
+        {gridRows.map((_, rowIndex) => {
+          const moviesRow = movieList.slice(rowIndex * column, (rowIndex + 1) * column);
+          const show = selectedMovie && selectedMovie['row'] !== undefined && selectedMovie['row'] === rowIndex;
           return (
             <>
               <ExpandCard movie={movieDetails} open={show} />
               <Grid
-                key={`row-${i}`}
+                key={`row-${rowIndex}`}
                 container
                 xs={12}
                 my="2rem"
                 mx="1rem"
-                justifyContent={movies.length < column ? '' : movies.length === 1 ? 'center' : 'space-between'}
+                justifyContent={moviesRow.length < column ? '' : moviesRow.length === 1 ? 'center' : 'space-between'}
               >
-                {movies.map((movie, index) => {
+                {moviesRow.map((movie, movieIndex) => {
                   return (
                     <Grid
                       xl={12 / column}
@@ -59,15 +68,14 @@ const Discover = ({ movieList }) => {
                     >
                       <MovieCard
                         movie={movie}
-                        open={show}
+                        open={open}
                         setOpen={setOpen}
                         setMovieDetails={setMovieDetails}
                         prevMovie={movieDetails}
-                        index={index}
-                        clicked={selectedMovie && selectedMovie.clickedMovie.imdbID === movie.imdbID}
-                        setClicked={() => onMovieSelect(i, index)}
-                        // onClick={}
-                        // selected={selectedMovie && selectedMovie.movie.imdbID === movie.imdbID}
+                        index={movieIndex}
+                        clicked={selectedMovie && selectedMovie.movie.imdbID === movie.imdbID}
+                        setClicked={() => selectMovie(rowIndex, movieIndex)}
+                        selectedMovie={selectedMovie}
                       />
                     </Grid>
                   );
@@ -77,34 +85,6 @@ const Discover = ({ movieList }) => {
           );
         })}
       </Grid>
-      {/* --------------------------------------------- */}
-      {/* <Grid container justifyContent={isMobile ? 'center' : ''}>
-        <ExpandCard movie={movieDetails} open={open} />
-        {movieList.length > 0 ? (
-          <Grid container my="2.4rem" spacing={2}>
-            {movieList.map((movie, index) => {
-              return (
-                <Grid item xs={12} sm={6} md={4} lg={3} xl={2.25} key={movie.imdbID} display="flex" justifyContent="center">
-                  <MovieCard
-                    movie={movie}
-                    open={open}
-                    setOpen={setOpen}
-                    setMovieDetails={setMovieDetails}
-                    prevMovie={movieDetails}
-                    index={index}
-                    clicked={clicked}
-                    setClicked={setClicked}
-                  />
-                </Grid>
-              );
-            })}
-          </Grid>
-        ) : (
-          <Typography component="div" fontSize={isMobile ? '15px' : '21px'} fontWeight="600" mt="2.5rem" ml="3rem" color="#fff">
-            No results found for your search.
-          </Typography>
-        )}
-      </Grid> */}
     </>
   );
 };

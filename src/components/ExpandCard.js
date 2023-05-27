@@ -8,7 +8,6 @@ import useMediaQueries from '../hooks/useMediaQueries';
 
 export default function ExpandCard({ movie, open }) {
   const isMobile = useMediaQueries('mobile');
-
   return (
     <Card
       className={open ? 'expandCard active' : 'expandCard'}

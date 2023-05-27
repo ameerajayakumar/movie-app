@@ -7,23 +7,27 @@ import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import { IconButton } from '@mui/material';
 import { Box } from '@mui/system';
 
-export default function MovieCard({ movie, setOpen, open, setMovieDetails, prevMovie, index, clicked, setClicked }) {
+export default function MovieCard({ movie, setOpen, open, setMovieDetails, prevMovie, index, clicked, setClicked, selectedMovie }) {
   const handleExpandCard = (index) => {
     // if (clicked === index) {
     //   setClicked(null);
     // } else {
     //   setClicked(index);
     // }
+    // console.log('curr', selectedMovie);
+    // console.log('prev', prevMovie);
+
     setClicked();
-    if (prevMovie.imdbID === movie.imdbID && open === true) {
-      setOpen(false);
-    } else {
-      setMovieDetails(movie);
-      setOpen(false);
-      setTimeout(() => {
-        setOpen(true);
-      }, 80);
-    }
+    setMovieDetails(movie);
+
+    // if (prevMovie.imdbID === movie.imdbID && open === true) {
+    //   setOpen(false);
+    // } else {
+    //   setOpen(false);
+    //   setTimeout(() => {
+    //     setOpen(true);
+    //   }, 80);
+    // }
   };
 
   return (
