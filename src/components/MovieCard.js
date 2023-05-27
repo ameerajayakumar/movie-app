@@ -7,31 +7,14 @@ import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import { IconButton } from '@mui/material';
 import { Box } from '@mui/system';
 
-export default function MovieCard({ movie, setOpen, open, setMovieDetails, prevMovie, index, clicked, setClicked, selectedMovie }) {
-  const handleExpandCard = (index) => {
-    // if (clicked === index) {
-    //   setClicked(null);
-    // } else {
-    //   setClicked(index);
-    // }
-    // console.log('curr', selectedMovie);
-    // console.log('prev', prevMovie);
-
+export default function MovieCard({ movie, setMovieDetails, index, clicked, setClicked }) {
+  const handleExpandCard = () => {
     setClicked();
     setMovieDetails(movie);
-
-    // if (prevMovie.imdbID === movie.imdbID && open === true) {
-    //   setOpen(false);
-    // } else {
-    //   setOpen(false);
-    //   setTimeout(() => {
-    //     setOpen(true);
-    //   }, 80);
-    // }
   };
 
   return (
-    <Card className={`${clicked ? 'card clicked' : 'card'}`} onClick={() => handleExpandCard(index)} index={index}>
+    <Card className={`${clicked ? 'card clicked' : 'card'}`} onClick={() => handleExpandCard()} index={index}>
       <div className="card-content">
         <CardMedia component="img" image={movie.Poster} alt={movie.Title} className="card-image" />
       </div>

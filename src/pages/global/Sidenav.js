@@ -72,6 +72,7 @@ const Sidenav = () => {
             </Box>
           </Box>
           <CustomDivider />
+          {/* Side navigation options */}
           <Box paddingLeft="10%" mb="12px" mt="16px">
             <MenuItem
               active="true"

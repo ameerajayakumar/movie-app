@@ -1,11 +1,9 @@
-import Sidenav from './pages/global/Sidenav';
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from './theme';
 import Main from './pages/global/Main';
-// import useMediaQueries from './hooks/useMediaQueries';
+import Sidenav from './pages/global/Sidenav';
 
 function App() {
-  // const isMobile = useMediaQueries('mobile');
   return (
     <ThemeProvider theme={theme}>
       <div className="app">

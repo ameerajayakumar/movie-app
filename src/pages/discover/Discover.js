@@ -7,15 +7,14 @@ import Grid from '@mui/material/Unstable_Grid2';
 
 const Discover = ({ movieList }) => {
   const isMobile = useMediaQueries('mobile');
-  const [open, setOpen] = useState(false);
   const [movieDetails, setMovieDetails] = useState([]);
-  const column = useWidth();
-  const rows = Math.ceil(movieList.length / column);
+  const columns = useWidth();
+  const rows = Math.ceil(movieList.length / columns);
   const gridRows = Array.from({ length: rows });
   const [selectedMovie, setSelectedMovie] = useState();
 
   const selectMovie = (rowIndex, movieIndex) => {
-    const currentMovie = movieList[rowIndex === 0 ? movieIndex : rowIndex * column + movieIndex];
+    const currentMovie = movieList[rowIndex === 0 ? movieIndex : rowIndex * columns + movieIndex];
     setSelectedMovie({
       row: rowIndex,
       index: movieIndex,
@@ -28,7 +27,7 @@ const Discover = ({ movieList }) => {
       {movieList.length > 0 ? (
         <Grid container justifyContent={isMobile ? 'center' : ''}>
           {gridRows.map((_, rowIndex) => {
-            const moviesRow = movieList.slice(rowIndex * column, (rowIndex + 1) * column);
+            const moviesRow = movieList.slice(rowIndex * columns, (rowIndex + 1) * columns);
             const show = selectedMovie && selectedMovie['row'] !== undefined && selectedMovie['row'] === rowIndex;
             return (
               <Fragment key={rowIndex}>
@@ -39,21 +38,18 @@ const Discover = ({ movieList }) => {
                   xs={12}
                   my="2rem"
                   mx="1rem"
-                  justifyContent={moviesRow.length < column ? '' : moviesRow.length === 1 ? 'center' : 'space-between'}
+                  justifyContent={moviesRow.length < columns ? '' : moviesRow.length === 1 ? 'center' : 'space-between'}
                 >
                   {moviesRow.map((movie, movieIndex) => {
                     return (
-                      <Grid xl={12 / column} sx={{ width: 'fit-content' }} key={movie.imdbID} display="flex" justifyContent="center">
+                      <Grid xl={12 / columns} sx={{ width: 'fit-content' }} key={movie.imdbID} display="flex" justifyContent="center">
                         <MovieCard
                           movie={movie}
-                          open={open}
-                          setOpen={setOpen}
                           setMovieDetails={setMovieDetails}
                           prevMovie={movieDetails}
                           index={movieIndex}
                           clicked={selectedMovie && selectedMovie.movie.imdbID === movie.imdbID}
                           setClicked={() => selectMovie(rowIndex, movieIndex)}
-                          selectedMovie={selectedMovie}
                         />
                       </Grid>
                     );
